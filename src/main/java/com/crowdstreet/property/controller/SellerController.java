@@ -5,10 +5,8 @@ import com.crowdstreet.property.model.Seller;
 import com.crowdstreet.property.service.SellerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,9 +28,17 @@ public class SellerController {
     }
 
     //build get all sellers REST API
+    @GetMapping
     public List<Seller> getAllSellers(){
         return sellerService.getAllSellers();
     }
+
+    //build get seller by ID REST API
+    @GetMapping({"id"})
+    public ResponseEntity<Seller> getSellerById(@PathVariable("id") long sellerId) {
+        return new ResponseEntity<Seller>(sellerService.getSellerById(sellerId), HttpStatus.OK);
+    }
+
 
 
 

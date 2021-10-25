@@ -10,5 +10,6 @@ public interface SellerService {
 
     List<Seller> getAllSellers();
 
+    Seller getSellerById(long id);
 
 }
