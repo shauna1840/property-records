@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/sellers")
 public class SellerController {
@@ -21,12 +23,18 @@ public class SellerController {
     }
 
     // build create sellers REST APIs
-
     @PostMapping
     public ResponseEntity<Seller> saveSeller(@RequestBody Seller seller){
 
-        return new ResponseEntity<Seller>(sellerService.saveSeller(seller), HttpStatus.CREATED)
+        return new ResponseEntity<Seller>(sellerService.saveSeller(seller), HttpStatus.CREATED);
     }
+
+    //build get all sellers REST API
+    public List<Seller> getAllSellers(){
+        return sellerService.getAllSellers();
+    }
+
+
 
 
 }
