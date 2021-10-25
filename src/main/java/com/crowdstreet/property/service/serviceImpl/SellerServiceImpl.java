@@ -35,6 +35,11 @@ public class SellerServiceImpl implements SellerService {
         return sellerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Seller", "Id" , id));
     }
 
+    @Override
+    public void deleteSeller(long id) {
+        sellerRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException ("Seller", "Id", id));
+        sellerRepository.deleteById(id);
+    }
 
 
 }
