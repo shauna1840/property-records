@@ -39,13 +39,14 @@ public class SellerController {
         return new ResponseEntity<Seller>(sellerService.getSellerById(sellerId), HttpStatus.OK);
     }
 
+    // build update seller record by Id
+
+
     //delete seller from database
     @DeleteMapping({"id"})
     public ResponseEntity<String> deleteSellerByID(@PathVariable ("id") long Id){
         return new ResponseEntity<String>("Seller records deleted successful", HttpStatus.OK);
     }
-
-
 
 
 
